@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ecommerce</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <h1>Simulador de e-commerce. Seleccione sus productos.</h1>
+
+
+    <section class="grid-container">
+        <div class="grid-item">Buzo</div>
+        <div class="grid-item">Remera</div>
+        <div class="grid-item">Pantalón</div>
+        <div class="grid-item">Buzo - ARS 30,000</div>
+        <div class="grid-item">Remera - ARS 15,000</div>
+        <div class="grid-item">Pantalón - ARS 25,000</div>
+        <div class="grid-item grid-item-count">
+            <button id="plus-button-item-1" value="Buzo" onclick="myfunction_plus_item_1()">+</button>
+            <span id="count-item-1">0</span>
+            <button id="minus-button-item-1" value="Buzo" onclick="myfunction_minus_item_1()">-</button>
+        </div>
+        <div class="grid-item grid-item-count">
+            <button id="plus-button-item-2" value="Remera" onclick="myfunction_plus_item_2()">+</button>
+            <span id="count-item-2">0</span>
+            <button id="minus-button-item-2" value="Remera" onclick="myfunction_minus_item_2()">-</button>
+        </div>
+        <div class="grid-item grid-item-count">
+            <button id="plus-button-item-3" value="Pantalon" onclick="myfunction_plus_item_3()">+</button>
+            <span id="count-item-3">0</span>
+            <button id="minus-button-item-3" value="Pantalon" onclick="myfunction_minus_item_3()">-</button>
+        </div>
+
+    </section>
+
+    <section class="carrito">
+        <h2>Gracias por su compra!</h2>
+        <div id="cliente"></div>
+        <h2>Resúmen de su pedido:</h2>
+        <button onclick="myfunction_cart()">Finalizar compra?</button>
+        <p id=resumen-carriro-0></p>
+        <p id=resumen-carriro-1></p>
+        <p id=resumen-carriro-2></p>
+        
+        
+    </section>
+
+    <script src="javascript.js"></script>
+</body>
+</html>

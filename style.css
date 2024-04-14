@@ -1,0 +1,33 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 100px 20px 20px;
+    column-gap: 5px;
+    row-gap: 5px;
+}
+
+.grid-item{
+    border: 1px solid black;
+}
+
+.grid-item-count{
+    margin-left: 100px;
+    margin-right: 100px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.plus-icon:active{
+    background-color: green;
+
+}
+
+.minus-icon:active{
+    background-color: red;
+
+}
+
+#cliente {
+    font-size: 2rem;
+    color: blue;
+}
