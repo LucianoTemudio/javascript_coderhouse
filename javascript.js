@@ -1,86 +1,100 @@
-// cliente
-let cliente = prompt("Bienvenido, ¿cuál es su nombre?");
-console.log(cliente);
-document.getElementById("cliente").innerHTML = `Nos complace su que nos haya elegido ${cliente}.`;
+// mostrar productos
+
+const products_container = document.querySelector('#products_container');
+
+for (let i = 0; i < productos.length; i++){
+
+    const product_card = document.createElement('div')
+    product_card.setAttribute('class', 'product_card_style')
+    
+    product_card.innerHTML = `
+    
+    <div>${productos[i].categoria}</div>
+    <img class="image_display" src="${productos[i].image}" alt="${productos[i].nombre}">
+    <div>${productos[i].nombre}</div>
+    <div>${productos[i].precio}</div>
+    <button id="${productos[i].id}" class="agregar_carrito">Agregar al carrito</button>
+    
+    `
+
+    products_container.appendChild(product_card);
+}
+
+
+
 
 
 // agregar productos al carrito
 
-const producto_1 = []
-let producto_1_count = 0
+const cart = []
 
-function myfunction_plus_item_1 () { 
-    let myvar = document.getElementById("plus-button-item-1").value;
-    producto_1.push(myvar);
-    producto_1_count = producto_1.length;
-    document.getElementById("count-item-1").innerHTML = producto_1_count;
-    console.log(producto_1);
-    console.log(producto_1_count);
+const cart_selector = document.querySelectorAll('.agregar_carrito')
+
+cart_selector.forEach(element => {
+    element.addEventListener('click', (element) => {
+        let myvar = element.target.id;
+        cart.push(myvar);
+    })
 }
-
-function myfunction_minus_item_1 () { 
-    let myvar = document.getElementById("minus-button-item-1").value;
-    producto_1.pop(myvar);
-    producto_1_count = producto_1.length;
-    document.getElementById("count-item-1").innerHTML = producto_1_count;
-    console.log(producto_1);
-    console.log(producto_1_count);
-}
-
-console.log()
-
-const producto_2 = []
-let producto_2_count = 0
-
-function myfunction_plus_item_2 () { 
-    let myvar = document.getElementById("plus-button-item-2").value;
-    producto_2.push(myvar);
-    producto_2_count = producto_2.length;
-    document.getElementById("count-item-2").innerHTML = producto_2_count;
-    console.log(producto_2);}
-
-function myfunction_minus_item_2 () { 
-    let myvar = document.getElementById("minus-button-item-2").value;
-    producto_2.pop(myvar);
-    producto_2_count = producto_2.length;
-    document.getElementById("count-item-2").innerHTML = producto_2_count;
-    console.log(producto_2);}
+)
 
 
-const producto_3 = []
-let producto_3_count = 0
 
-function myfunction_plus_item_3 () { 
-    let myvar = document.getElementById("plus-button-item-3").value;
-    producto_3.push(myvar);
-    producto_3_count = producto_3.length;
-    document.getElementById("count-item-3").innerHTML = producto_3_count;
-    console.log(producto_3);}
 
-function myfunction_minus_item_3 () { 
-    let myvar = document.getElementById("minus-button-item-3").value;
-    producto_3.pop(myvar);
-    producto_3_count = producto_3.length;
-    document.getElementById("count-item-3").innerHTML = producto_3_count;
-    console.log(producto_3);}
 
-// carrito
+// finalizar compra
 
-function myfunction_cart() {
+const carrito_storage = []
 
-    let confirma = confirm("Confirma finalización de la compra?");
-    console.log(confirma);
-    if (confirma == true) {
-        alert("Gracias por su compra, su resúmen más abajo.");
-        const cart = [{Producto:"Buzo", Cantidad: producto_1_count, Precio: producto_1_count*30000},{Producto:"Remera", Cantidad: producto_2_count, Precio: producto_2_count*15000}, {Producto:"Pantalón", Cantidad: producto_3_count, Precio: producto_3_count*25000}]
-        
-        for (let i = 0; i < cart.length; i++){
-            console.log(cart[i].Producto, cart[i].Cantidad, cart[i].Precio)
-            document.getElementById(`resumen-carriro-${i}`).innerHTML = `Producto: ${cart[i].Producto}, Unidades: ${cart[i].Cantidad}, Precio total: ${cart[i].Precio}`;
+function carrito_final() {
+
+    // saludo cliente
+    const nombre = document.getElementById('name').value
+    const email = document.getElementById('email').value
+    saludo.innerHTML = `
+    <div class="saludo_style">Muchas gracias por su compra ${nombre}. Su factura será enviada a su email: ${email}. El detalle de su compra más abajo:</div>
+    
+    `
+    // agrego el resúmen del carrito en el html
+    const resumen_carrito = document.querySelector('#resumen_carrito');
+
+    for (let i = 0; i < productos.length; i++){
+
+        let temp_count = cart.filter(cart_filter)
+        function cart_filter(item) {
+            return item == i+1;
+          }
+
+        temp_count = temp_count.length
+
+        if (temp_count > 0) {
+            
+            let temp_product = productos.filter(productos => productos.id == i+1)
+
+            let temp_price = temp_count * temp_product[0].precio
+
+            const products_list = document.createElement('div')
+            products_list.setAttribute('class', 'resumen_carrito_style');
+    
+            products_list.innerHTML = `
+            
+            <div>Categoría: ${temp_product[0].categoria}</div>
+            <div>Nombre: ${temp_product[0].nombre}</div>
+            <div>Precio: ${temp_product[0].precio}</div>
+            <div>Unidades: ${temp_count}</div>
+            <div>Precio Total: ${temp_price}</div>
+            
+            `
+            resumen_carrito.appendChild(products_list);
+
+            let temp_storage = {cliente: nombre, email: email, categoria: temp_product[0].categoria, nombre: temp_product[0].nombre, precio: temp_product[0].precio, unidades: temp_count, precio_total: temp_price}
+            carrito_storage.push(temp_storage)
         }
-    }
-    else {
-        alert("Puede seguir comprando :)")
-    } 
 
+    }
+
+    // agregar carrito y datos cliente al local storage
+    localStorage.setItem("carrito_storage", JSON.stringify(carrito_storage))
 }
+
+confirmar_compra.onclick = carrito_final

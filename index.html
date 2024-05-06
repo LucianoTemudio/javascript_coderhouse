@@ -11,43 +11,28 @@
     <h1>Simulador de e-commerce. Seleccione sus productos.</h1>
 
 
-    <section class="grid-container">
-        <div class="grid-item">Buzo</div>
-        <div class="grid-item">Remera</div>
-        <div class="grid-item">Pantalón</div>
-        <div class="grid-item">Buzo - ARS 30,000</div>
-        <div class="grid-item">Remera - ARS 15,000</div>
-        <div class="grid-item">Pantalón - ARS 25,000</div>
-        <div class="grid-item grid-item-count">
-            <button id="plus-button-item-1" value="Buzo" onclick="myfunction_plus_item_1()">+</button>
-            <span id="count-item-1">0</span>
-            <button id="minus-button-item-1" value="Buzo" onclick="myfunction_minus_item_1()">-</button>
-        </div>
-        <div class="grid-item grid-item-count">
-            <button id="plus-button-item-2" value="Remera" onclick="myfunction_plus_item_2()">+</button>
-            <span id="count-item-2">0</span>
-            <button id="minus-button-item-2" value="Remera" onclick="myfunction_minus_item_2()">-</button>
-        </div>
-        <div class="grid-item grid-item-count">
-            <button id="plus-button-item-3" value="Pantalon" onclick="myfunction_plus_item_3()">+</button>
-            <span id="count-item-3">0</span>
-            <button id="minus-button-item-3" value="Pantalon" onclick="myfunction_minus_item_3()">-</button>
-        </div>
-
-    </section>
+    <section id="products_container"></section>
+    
 
     <section class="carrito">
-        <h2>Gracias por su compra!</h2>
-        <div id="cliente"></div>
-        <h2>Resúmen de su pedido:</h2>
-        <button onclick="myfunction_cart()">Finalizar compra?</button>
-        <p id=resumen-carriro-0></p>
-        <p id=resumen-carriro-1></p>
-        <p id=resumen-carriro-2></p>
-        
-        
+        <form>
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name">
+            <label for="email">email:</label>
+            <input type="text" id="email" name="email">
+        </form>
+
+        <button id="confirmar_compra">Finalizar Compra</button>
+
+    </section>
+    
+
+    <section id="resumen_carrito">
+        <p id="saludo"></p>
+
     </section>
 
+    <script src="products_database.js"></script>
     <script src="javascript.js"></script>
 </body>
 </html>
