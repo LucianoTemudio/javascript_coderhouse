@@ -2,14 +2,21 @@
     display: flex;
 }
 
+#products_container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+
 .product_card_style{
     display: grid;
     grid-template-columns: 200px;
     grid-template-rows: 20px 200px 20px 20px 20px;
     column-gap: 5px;
     row-gap: 5px;
-    border: 1px solid black;
-    margin: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin: 5px;
 }
 
 .image_display{
@@ -31,6 +38,10 @@
 
 
 .resumen_carrito_style{
+    margin: 15px;
+}
+
+.temp_carrito_style{
     margin: 15px;
 }
 
