@@ -135,6 +135,10 @@ function cart_prod_removal() {
                     carrito_temporal.appendChild(temp_products_list);
                 
                 })
+                
+                cart_prod_removal();
+
+
     
         })
     }
