@@ -1,5 +1,13 @@
-#products_container{
-    display: flex;
+nav{
+    background-color: black;
+    height: 4rem;
+
+}
+
+h1{
+    color: white;
+    margin: 10px;
+    
 }
 
 #products_container{
@@ -10,13 +18,16 @@
 
 .product_card_style{
     display: grid;
+    align-items: center;
     grid-template-columns: 200px;
     grid-template-rows: 20px 200px 20px 20px 20px;
     column-gap: 5px;
     row-gap: 5px;
-    border: 1px solid gray;
+    border: 3px solid black;
     border-radius: 5px;
     margin: 5px;
+    padding: 10px;
+    background-color: white;
 }
 
 .image_display{

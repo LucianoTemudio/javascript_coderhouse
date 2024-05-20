@@ -24,8 +24,8 @@ for (let i = 0; i < productos.length; i++){
 
 // agregar productos al carrito
 
-const cart = []
-const product_cart = []
+let cart = []
+let product_cart = []
 
 const cart_selector = document.querySelectorAll('.agregar_carrito')
 
@@ -78,22 +78,73 @@ cart_selector.forEach(e => {
             <div>Nombre: ${element.nombre}</div>
             <div>Precio: ${element.precio}</div>
             <div>Unidades: ${element.unidades}</div>
+            <button id="${element.id}" class="remover_carrito">Remover del carrito</button>
             
             `
             carrito_temporal.appendChild(temp_products_list);
-    
-            
+         
         })
+
+        // función para remover productos del carrito temporal
+        cart_prod_removal();
+
+
 
     })
 }
 )
 
 
+// remover productos del carrito temporal
+function cart_prod_removal() {
+    const cart_removal = document.querySelectorAll('.remover_carrito');
+
+    cart_removal.forEach(element => {
+        element.addEventListener('click', (element) => {
+            let myvar = element.target.id;
+    
+            product_cart = product_cart.filter(product_cart => product_cart.id != myvar);
+
+
+            // actualizar a cero número de unidades en lista de productos original
+            for (let i = 0; i < productos.length; i++) {
+                if (productos[i].id == myvar) {
+                    productos[i].unidades = 0;
+                }
+            }
+
+                // refrescar carrito temporal
+                while (carrito_temporal.firstChild) {
+                    carrito_temporal.removeChild(carrito_temporal.firstChild)
+                };
+
+                product_cart.forEach((element) => {
+
+                    const temp_products_list = document.createElement('div')
+                    temp_products_list.setAttribute('class', 'temp_carrito_style');
+                
+                    temp_products_list.innerHTML = `
+                    
+                    <div>Categoría: ${element.categoria}</div>
+                    <div>Nombre: ${element.nombre}</div>
+                    <div>Precio: ${element.precio}</div>
+                    <div>Unidades: ${element.unidades}</div>
+                    <button id="${element.id}" class="remover_carrito">Remover del carrito</button>
+                    
+                    `
+                    carrito_temporal.appendChild(temp_products_list);
+                
+                })
+    
+        })
+    }
+    )
+
+}
+
+
+
 // finalizar compra
-
-
-
 function carrito_final() {
     const carrito_storage = []
 
