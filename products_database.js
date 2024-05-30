@@ -31,7 +31,7 @@ fetch(dir)
 .then(response => response.json())
 .then(data => agregar_productos(data))
 
-// consolidar los productos del archivo json con la lista original de productos
+// consolidar los productos del archivo json con la lista original de productos (se hace uso de ambas opciones para usar clases y fetch en el proyecto)
 function agregar_productos(productos_json) {
     productos_json.forEach(item => {
         productos.push(new producto(item.id, item.categoria,item.nombre,item.precio,item.image, item.unidades))
