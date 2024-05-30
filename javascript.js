@@ -21,6 +21,8 @@ function DOM_update() {
     filtro_app();
 }
 
+
+// agrega las categorías pertinentes al dropdown
 function filtro_categorias() {
 
     let filtro = document.getElementById('filtro');
@@ -43,7 +45,7 @@ function filtro_categorias() {
 }
 
 
-// filtar por categoría de producto
+// función para filtar por categoría de producto
 function filtro_app() {
     filtro_producto_app = document.querySelectorAll('.filtro_producto_app')
 
