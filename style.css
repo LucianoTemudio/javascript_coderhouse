@@ -1,26 +1,24 @@
-nav{
-    background-color: black;
-    height: 4rem;
-
-}
-
-h1{
-    color: white;
-    margin: 10px;
-    
-}
-
 #products_container{
+    margin-top: 60px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
 
+.prod_categoria{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.prod_nombre{
+    font-size: 1.2rem;
+}
 
 .product_card_style{
     display: grid;
     align-items: center;
-    grid-template-columns: 200px;
-    grid-template-rows: 20px 200px 20px 20px 20px;
+    justify-items: center;
+    grid-template-columns: 100%;
+    grid-template-rows: 20px 200px 20px 20px 30px;
     column-gap: 5px;
     row-gap: 5px;
     border: 3px solid black;
@@ -28,14 +26,15 @@ h1{
     margin: 5px;
     padding: 10px;
     background-color: white;
+    
 }
 
 .image_display{
-    width: 70%;
+    width: 50%;
 }
 
 .agregar_carrito{
-    width: 70%;
+    width: 30%;
 }
 
 .carrito{
@@ -56,6 +55,28 @@ h1{
     margin: 15px;
 }
 
+.remover_carrito{
+    margin-top: 5px;
+}
+
 .saludo_style{
     color: blue;
+    margin: 15px;
+}
+
+input{
+    border-radius: 5px;
+    border-color: blue;
+    margin: 10px;
+}
+
+label{
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

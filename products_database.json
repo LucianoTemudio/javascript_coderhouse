@@ -1,0 +1,6 @@
+[
+    {"id":"7", "categoria":"Muebles", "nombre":"Sillon", "precio":"200000", "image":"assets/sillon.png", "unidades":0},
+    {"id":"8", "categoria":"Muebles", "nombre":"Mesa", "precio":"150000", "image":"assets/mesa.png", "unidades":0},
+    {"id":"9", "categoria":"Muebles", "nombre":"Cama", "precio":"175000", "image":"assets/cama.png", "unidades":0}
+
+]
