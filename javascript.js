@@ -31,7 +31,7 @@ function filtro_categorias() {
     for (let i = 0; i < productos.length; i++){
         let temp_categoria = productos[i].categoria
         let validacion = filter_list.some(filter_list => filter_list == temp_categoria)
-        if (validacion) {} else {filter_list.push(temp_categoria)}
+        if (validacion) {''} else {filter_list.push(temp_categoria)}
     }
     
         for (let i = 0; i < filter_list.length; i++){
